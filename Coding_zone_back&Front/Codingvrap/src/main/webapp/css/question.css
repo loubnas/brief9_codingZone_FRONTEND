@@ -119,6 +119,7 @@ fieldset{
     width: 69% !important;
     margin-left: 14% !important;
     background-color: white;
+    margin-top: 1% !important;
 }
 
 .control{
@@ -148,6 +149,15 @@ p{
     font-size: 18px;
 }
 
+.affichage{
+    color : #008CDD !important;
+    text-align: center !important;
+    margin-top: 2px !important;
+    font-weight: bold;
+
+
+}
+
 .DD{
     margin: -7px 228px !important;
     padding: 5px !important;
@@ -156,4 +166,7 @@ p{
 
 .FF{
     width: 35% !important;
+}
+span{
+    color: black !important;
 }

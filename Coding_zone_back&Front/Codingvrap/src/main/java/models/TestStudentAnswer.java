@@ -2,13 +2,24 @@ package models;
 
 public class TestStudentAnswer {
     private  int id;
+
+    public int getId_teststudent() {
+        return id_teststudent;
+    }
+
+    public void setId_teststudent(int id_teststudent) {
+        this.id_teststudent = id_teststudent;
+    }
+
+    private  int id_teststudent;
     private  int id_student;
     private  int id_test;
     private  int id_question;
     private int answer;
 
-    public TestStudentAnswer(int id, int id_student, int id_test, int id_question, int answer) {
+    public TestStudentAnswer(int id,int id_teststudent, int id_student, int id_test, int id_question, int answer) {
         this.id = id;
+        this.id_teststudent=id_teststudent;
         this.id_student = id_student;
         this.id_test = id_test;
         this.id_question = id_question;

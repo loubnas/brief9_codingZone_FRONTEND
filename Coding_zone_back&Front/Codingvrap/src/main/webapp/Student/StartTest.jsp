@@ -85,9 +85,6 @@
 
 
                 <div class="finquest ">
-<%--                <div class="headquest d-flex flex-row justify-content-between align-items-center p-3 ">--%>
-                    <%--                    <button  type="hidden"></button>--%>
-
                     <button class="btn btn-white  align-items-center " type="button" id="next" style="width: 100PX">Next<i class="fa fa-angle-right ml-2"></i></button>
                 </div>
             </div>

@@ -34,7 +34,9 @@ public class DashboardServlet extends HttpServlet {
         request.setAttribute("passedTests",PassedTests);
         request.setAttribute("nonPassedTests",NonPassedTests);
         request.setAttribute("scoresTests",ScoresTests);
+        // "L1","L2","L3"
         request.setAttribute("labels",testByDates.stream().map(td->"\""+td.getDate().toString()+"\"").collect(Collectors.joining(",")));
+        // 1,2,3
         request.setAttribute("data",testByDates.stream().map(td->String.valueOf(td.getTests())).collect(Collectors.joining(",")));
     }
 

@@ -98,8 +98,8 @@
             List<Question> QS = (List<Question>) request.getAttribute("listQuestion");
             for(Question Q:QS){
 
-                String[] checked = new String[5];
-                checked[Q.getTrueAnswer()]="checked";
+                String[] checked = new String[4];
+                checked[Q.getTrueAnswer()-1]="checked";
 
         %>
         <div class="col-sm-4">
@@ -146,17 +146,17 @@
                                         <div class="Answer">
                                             <label class="form-label" for="Answer1">Reponse 1:</label>
                                             <input value="<%=Q.getReponse1() %>" class="form-control" name="Answer1" type="text" id="Answer1">
-                                            <input   name="TrueAnswer" type="radio"  value="1" <%= checked[1] %> >
+                                            <input   name="TrueAnswer" type="radio"  value="1" <%= checked[0] %> >
                                         </div> <br>
                                         <div class="Answer">
                                             <label class="form-label" class="form-label" for="Answer2">Reponse 2:</label>
                                             <input value="<%=Q.getReponse2() %>" class="form-control" name="Answer2" type="text" id="Answer2">
-                                            <input  name="TrueAnswer" type="radio" value="2" <%= checked[2] %> >
+                                            <input  name="TrueAnswer" type="radio" value="2" <%= checked[1] %> >
                                         </div> <br>
                                         <div class="Answer">
                                             <label class="form-label" for="Answer3">Reponse 3:</label>
                                             <input value="<%=Q.getReponse3() %>" class="form-control" name="Answer3" type="text" id="Answer3">
-                                            <input  name="TrueAnswer" type="radio" value="3" <%= checked[3] %> >
+                                            <input  name="TrueAnswer" type="radio" value="3" <%= checked[2] %> >
                                         </div> <br>
                                         <div class="Answer">
                                             <label class="form-label" for="Answer4">Reponse 4:</label>

@@ -65,14 +65,6 @@ public class AffecterTestServlet extends HttpServlet {
             int id_stdint =Integer.parseInt(id_std);
             String email = parts[1];
 
-            //----------------------------------
-
-            //System.out.print(std);
-            // System.out.print(id_std);
-            // System.out.print(email);
-
-            //----------------------------------
-
 
             // It will generate 6 digit random Number.
             // from 0 to 999999
@@ -95,9 +87,6 @@ public class AffecterTestServlet extends HttpServlet {
                     TestStudent obj =new TestStudent(idtest, id_stdint,datelimite ,code);
 
             int flag =testStudentDao.create(obj);
-                    System.out.print("\n");
-                    System.out.print(flag);
-
                     operationResponse.add(new TestStudentSended(idtest,email,true));
                 }
                 else{

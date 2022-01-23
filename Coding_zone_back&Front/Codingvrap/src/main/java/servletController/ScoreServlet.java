@@ -46,6 +46,7 @@ public class ScoreServlet extends HttpServlet {
 
                     }
                     tsa.setAnswer(answer);
+                    tsa.setId_teststudent(testStudent.getIdTestStudent());
                     DaoFactory.getTestStudentAnswerImpl().create(tsa);
                     Score += (answer == q.getTrueAnswer()) ? q.getScore() : 0;
                     TotalScore += q.getScore();
@@ -60,8 +61,6 @@ public class ScoreServlet extends HttpServlet {
                 DaoFactory.getTestStudentImpl().update(testStudent);
 
 
-            } else {
-                //erreurs
             }
             String subject= "Rapport Test Youcode";
             String textObject = "<div style='display:flex;flex-direction:column;width:35vw;margin:auto;border:1px solid #000;'>\n" +
@@ -80,8 +79,7 @@ public class ScoreServlet extends HttpServlet {
                     "        <p>L'équipe CofingZone</p>\n" +
                     "    </div>\n" +
                     "</div>";
-//            System.out.println("\n\nemail ============>"+email);
-//            System.out.println("\n\nCode ============>"+code);
+//
 
             try {
                 MailJava.SendMail(email, subject,textObject);

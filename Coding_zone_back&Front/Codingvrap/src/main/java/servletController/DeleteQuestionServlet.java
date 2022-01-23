@@ -14,7 +14,6 @@ public class DeleteQuestionServlet extends HttpServlet {
     private DAO<Question> daoQuestion= DaoFactory.getQuestionImpl();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.print("actionactionactionactionactionactionactionactionactionactionaction");
             String action=  request.getParameter( "action");
         int idQuestion= Integer.parseInt( request.getParameter( "id"));
 
@@ -22,14 +21,7 @@ public class DeleteQuestionServlet extends HttpServlet {
             int flag = daoQuestion.delete(idQuestion);
             response.sendRedirect("FindQuestionServlet");
       }
-        else if (action.equals("edite")) {
 
-            Question question = daoQuestion.find(idQuestion);
-            request.setAttribute("question",question);
-
-            request.getRequestDispatcher("/stuff/editeQuestion.jsp").forward(request,response);
-
-        }
 
 
 

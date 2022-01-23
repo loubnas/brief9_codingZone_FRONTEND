@@ -14,11 +14,17 @@ import java.io.PrintWriter;
 public class LoginServlet extends HttpServlet {
     private DAO<Staff> daoStaff= DaoFactory.getStaffImpl();
 
-
     @Override
-    public void init() throws ServletException {
-        super.init();
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        if(session.getAttribute("staff")==null){
+            this.getServletContext().getRequestDispatcher("/login.jsp").forward(request,response);
+        }
+        else{
 
+            request.getRequestDispatcher("DashboardServlet").forward(request,response);
+
+        }
     }
 
 
@@ -33,12 +39,9 @@ public class LoginServlet extends HttpServlet {
         Staff staff=new Staff(email, password);
         Staff flag= daoStaff.login(staff);
 
-        System.out.print(flag);
         if (flag != null){
             HttpSession session = request.getSession();
             session.setAttribute("staff", flag);
-      String message="welcome admin";
-      request.setAttribute("message",message);
 
             request.getRequestDispatcher("DashboardServlet").forward(request,response);
    }
@@ -49,17 +52,6 @@ public class LoginServlet extends HttpServlet {
             this.getServletContext().getRequestDispatcher("/login.jsp").forward(request,response);
         }
     }
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        HttpSession session = request.getSession();
-        if(session.getAttribute("staff")==null){
-            this.getServletContext().getRequestDispatcher("/login.jsp").forward(request,response);
-        }
-        else{
 
-            request.getRequestDispatcher("DashboardServlet").forward(request,response);
-
-        }
-    }
 
 }

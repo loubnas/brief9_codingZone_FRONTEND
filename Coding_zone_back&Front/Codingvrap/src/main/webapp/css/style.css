@@ -47,6 +47,7 @@ h3{
     box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
     width: 500px;
     margin: auto;
+    margin-top: -2% !important;
 }
 .scoremsg{
     text-align: center;
@@ -155,8 +156,6 @@ label.radio span {
     padding: 4px 0px;
     /*border: 1px solid #008CDD;*/
     display: inline-block;
-
-    width: 100px;
     text-align: center;
     border-radius: 3px;
     margin-top: 7px;

@@ -23,27 +23,23 @@ public class RapportServlet extends HttpServlet {
     private TestDaoImpl daoTest = (TestDaoImpl) DaoFactory.getTestImpl();
     private StudentDaoImpl daoStudent = (StudentDaoImpl) DaoFactory.getStudentImpl();
     private TestStudentDaoImpl testStudentDao = (TestStudentDaoImpl) DaoFactory.getTestStudentImpl();
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         if (request.getParameter("code") != null) {
             String code = request.getParameter("code");
 
-            System.out.println("\ncode Rapport servlet =====>"+code);
             TestStudent testStudent = testStudentDao.findByCodeRapport(code);
-
-            System.out.println("testStudent ======>"+testStudent.getIdTest());
-            System.out.println("get date "+testStudent.getDateTest());
-            System.out.println("get full scor "+testStudent.getFullScore());
-            System.out.println("get score "+testStudent.getScore());
-            System.out.println("testStudent ======>"+testStudent.getIdTestStudent());
 
             if (testStudent != null) {
                 int idTest = testStudent.getIdTest();
                 int idStudent = testStudent.getIdStudent();
                 Student student = DaoFactory.getStudentImpl().find(idStudent);
+
                 HttpSession session = request.getSession();
                 session.setAttribute("studentses", testStudent);
                 Test test = DaoFactory.getTestImpl().find(idTest);
+
                 double Score=testStudent.getScore(),TotalScore=testStudent.getFullScore();
                 request.setAttribute("testStudent",testStudent);
                 request.setAttribute("student",student);

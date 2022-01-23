@@ -97,7 +97,7 @@
             <div class="row">
                 <%if(request.getAttribute("operationsResponse")!=null){
                     for(TestStudentSended t:(List<TestStudentSended>)request.getAttribute("operationsResponse")){%>
-                <p> ID test : <%=t.getId_test()%> ---- Email : <%=t.getEmail()%> ---- Statut : <%=t.isSended()%></p>
+                <p class="affichage"> <span> ID test :</span> <%=t.getId_test()%> ---- <span> Email :</span>  <%=t.getEmail()%> ---- <span> Statut :</span>  <%=t.isSended()%></p>
                 <%}
                 }%>
             </div>

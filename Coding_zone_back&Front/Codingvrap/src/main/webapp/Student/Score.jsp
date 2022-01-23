@@ -22,7 +22,6 @@
 
     <div class="code-form-1">
         <h3 style="margin-bottom: 30PX;">Score</h3>
-        <%--        <p> votre score est <%=request.getAttribute("score")%> / <%=request.getAttribute("totalScore")%></p>--%>
         <div class="d-flex justify-content-around InfoScore">
             <div class="divrating">
                 <div class="rating"><%=request.getAttribute("score")%>/<%=request.getAttribute("totalScore")%></div>

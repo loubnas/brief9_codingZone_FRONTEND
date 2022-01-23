@@ -16,11 +16,12 @@ public class TestStudentAnswerDaoImpl extends DAO<TestStudentAnswer> {
     public int create(TestStudentAnswer obj) {
 
         try {
-            PreparedStatement preparedStatement =this.connection.prepareStatement("INSERT INTO \"testStudentAnswer\" (id,id_student,id_test,id_question,answer) VALUES (DEFAULT,?,?,?,?);");
+            PreparedStatement preparedStatement =this.connection.prepareStatement("INSERT INTO \"testStudentAnswer\" (id,id_student,id_test,id_question,answer,id_teststudent) VALUES (DEFAULT,?,?,?,?,?);");
             preparedStatement.setInt(1,obj.getId_student());
             preparedStatement.setInt(2,obj.getId_test());
             preparedStatement.setInt(3,obj.getId_question());
             preparedStatement.setInt(4,obj.getAnswer());
+            preparedStatement.setInt(5,obj.getId_teststudent());
 
 
             int resultSet = preparedStatement.executeUpdate();
@@ -44,6 +45,7 @@ public class TestStudentAnswerDaoImpl extends DAO<TestStudentAnswer> {
             while (resultSet.next()) {
                 tsi.add(new TestStudentAnswer(
                         resultSet.getInt("id"),
+                        resultSet.getInt("id_teststudent"),
                         resultSet.getInt("id_student"),
                         resultSet.getInt("id_test"),
                         resultSet.getInt("id_question"),
@@ -72,6 +74,7 @@ public class TestStudentAnswerDaoImpl extends DAO<TestStudentAnswer> {
 
                 tsa = new TestStudentAnswer();
                 tsa.setId(resultSet.getInt("id"));
+                tsa.setId_teststudent(resultSet.getInt("id_teststudent"));
                 tsa.setId_student(resultSet.getInt("id_student"));
                 tsa.setId_test(resultSet.getInt("id_test"));
                 tsa.setId_question(resultSet.getInt("id_question"));

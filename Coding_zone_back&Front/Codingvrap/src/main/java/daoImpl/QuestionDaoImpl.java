@@ -3,6 +3,7 @@ package daoImpl;
 import dao.DAO;
 import models.Question;
 import models.Staff;
+import models.TestStudent;
 
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
@@ -155,6 +156,33 @@ public class QuestionDaoImpl extends DAO<Question> {
         }
     }
 
+    public int getStudentAnswer(TestStudent testStudent,int idQuestion){
+     int r=-1;
+        try {
+            PreparedStatement preparedStatement =this.connection.prepareStatement("SELECT answer FROM \"testStudentAnswer\"  WHERE id_question =? and id_teststudent=?");
+            preparedStatement.setInt(1, idQuestion);
+            preparedStatement.setInt(2, testStudent.getIdTestStudent());
+
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+
+r=resultSet.getInt("answer");
+
+
+
+
+            }
+
+            return r;
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+
+            e.printStackTrace();
+        }
+     return r;
+    }
     @Override
     public int update(Question question) {
         try {
