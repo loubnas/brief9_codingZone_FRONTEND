@@ -26,10 +26,10 @@ public class CodeServlet extends HttpServlet {
                 HttpSession session = request.getSession();
                 session.setAttribute("studentses", testStudent);
 
-                request.getRequestDispatcher("/HomeServlet").forward(request, response);
+                response.sendRedirect("HomeServlet");
+                //request.getRequestDispatcher("/HomeServlet").forward(request, response);
 
             } else {
-//                request.setAttribute("error", "Code invalide");
                 request.getRequestDispatcher("/Student/invalid.jsp").forward(request, response);
             }
         } else {
@@ -38,7 +38,7 @@ public class CodeServlet extends HttpServlet {
         }
     }
 
-    @Override
+    /*@Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String code = request.getParameter("code");
@@ -61,4 +61,6 @@ public class CodeServlet extends HttpServlet {
 
         }
     }
+
+     */
 }

@@ -20,7 +20,7 @@
     <%--    <div class="row">--%>
     <div class="code-form-1">
         <h3>Code</h3>
-        <form method="Post" action="CodeServlet">
+        <form method="get" action="CodeServlet">
             <div class="form-group">
                 <input type="text" class="form-control FF" name="code" required/> <br>
             </div>

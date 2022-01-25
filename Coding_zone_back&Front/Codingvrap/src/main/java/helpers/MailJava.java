@@ -27,10 +27,12 @@ public class MailJava {
         properties.put("mail.smtp.auth", "true");
         properties.put("mail.smtp.starttls.enable", "true");
 
-        String myEmail = "brief5mutuellecentralisee@gmail.com";
-        String mypassword = "hzebuugjolehzcoh";
-       /* String myEmail = "achrafharimza14@gmail.com";
-        String mypassword = "aiqtsohaltkyojdf";*/
+        /*String myEmail = "brief5mutuellecentralisee@gmail.com";
+        String mypassword = "iviufozcgsimhhdh";
+        */
+
+        String myEmail = "achrafharimza14@gmail.com";
+        String mypassword = "aiqtsohaltkyojdf";
 
         //Get the Session object. and pass username and password
         Session session = Session.getInstance(properties,new Authenticator() {

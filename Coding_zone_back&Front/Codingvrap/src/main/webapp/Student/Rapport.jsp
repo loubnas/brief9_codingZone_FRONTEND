@@ -134,7 +134,7 @@
 <body>
 
 <div class="card">
-    <h1 style="font-size: 22px;font-weight: normal;text-align: center;padding: 20px;">Rapport de votre Test <%= test.getName() %> </h1>
+    <h1 style="font-size: 22px;font-weight: normal;text-align: center;padding: 20px;">Rapport de test :  <span style="color: #007cf9"> <%= test.getName() %> </span> </h1>
     <div class="card__header">
         <img
                 src="https://www.pngfind.com/pngs/m/470-4703547_icon-user-icon-hd-png-download.png"
@@ -150,11 +150,10 @@
                 tabindex="1">
         </span>
     </div>
-    <div class="code-form-1">
-        <h3>Score</h3>
-        <%--        <p> votre score est <%=request.getAttribute("score")%> / <%=request.getAttribute("totalScore")%></p>--%>
+    <div class="">
+        <h3 style="text-align: center; margin-bottom:10px;">Score :</h3>
         <div class="d-flex justify-content-around InfoScore">
-            <div class="divrating">
+            <div class="">
                 <div class="rating"><%=testStudent.getScore()%>/<%=testStudent.getFullScore()%></div>
 
             </div>
@@ -162,9 +161,9 @@
     </div>
     <div>
         <% for(Question q:test.getQuestions()){%>
-        <hr>
+        <hr style="border-color: #007cf9 !important;">
         <br>
-        <div class="question"><span>(<%=q.getScore()%> points)</span><%=q.getContent()%></div>
+        <div class="question"><span style="color: #007cf9"> (<%=q.getScore()%> points)</span><%=q.getContent()%></div>
         <div class="reponses">
             <table>
                 <tr>
